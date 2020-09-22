@@ -9,95 +9,41 @@ void print_array(char array[], int length){
 	{
 		printf("%c", array[i]);
 	}
-<<<<<<< HEAD
-}
-
-int main(void){
-	char sentence[] = "cubik Hello";
-	int len_sentence = strlen(sentence);
-	char sentence2[len_sentence];
-	char key[] = "zero";
-	int len_key = strlen(key);
-	int ci;
-	
-	for (int i = 0; i < len_sentence; ++i)
-	{
-		if (isalpha(sentence[i])){
-			
-			sentence2[i] = key[i%len_key];
- 		}
- 		else{
- 			sentence2[i] = 32;
- 		}
- 		//ci = (sentence[i] + key[i] - 65 ) % 26 + 65;		
-	}
-
-	print_array(sentence2, len_sentence);
-	printf("\n");
-
-
-=======
 }	
 
-bool Alpha(char sentence[], int len){
-	char check_result[5];
-	for (int i = 0; i < len; ++i)
-	{
-		if (isalpha(sentence[i]))
-		{
-			
-			return true;
+int main(int argc, char **argv){
+	char sentence[] = "Meet me at the park at eleven am";
+	int len_sentence = strlen(sentence);
+	char *key;
+	int ci;
+	int al;
+	
+	if (argc != 2){
+		return 0;
+	}
+
+	key = argv[1];
+	
+	for (int i = 0, j = 0, len_key = strlen(key); i < len_sentence; ++i)
+	{	
+		if (isalpha(sentence[i])){
+			//printf("%c", key[j]); //print sentence like a key
+			al = 97;
+			if (isupper(sentence[i])){
+				al = 65;
+			}
+			ci = ((sentence[i]-al)+(tolower(key[j])-97)) % 26 + al; //cipher
+			j = (j+1) % len_key;
+			printf("%c", ci);
 		}
 		else{
-		
-			return false;
+			printf("%c", sentence[i]);
 		}
 	}
-
-	
-}
-
-
-int main(void){
-	char sentence[] = "meet me in the park at eleven am";
-	int sentence_length = 32;
-	char sentence2[sentence_length];
-	char sentence3[sentence_length];
-	char key[] = "bacon";
-	int key_legnth =  strlen(key);
-	int num_ci;
-	int count = 0;
-
->>>>>>> ciphers
-	/* Print key in alhabetic order 
-	char temp;
-	int i, j;
-	for (i = 0; i < key_legnth-1; ++i)
-	{
-		for (j = i + 1; j < key_legnth; ++j)
-		{
-		if (key[i] > key[j]){
-				temp = key[i];
-				key[i] = key[j];
-				key[j] = temp;
-			}
-		}
-	}
-	print_array(key, 5);
-	*/
-
-<<<<<<< HEAD
-	
-=======
-	for (int a = 0; a < sentence_length; ++a)
-	{
-		char x = (sentence[a] + key[a])%26;
-
-		x += 65;
-
-		sentence2[a] = (char)(x);
-	}
-	print_array(sentence2, sentence_length);
 	printf("\n");
->>>>>>> ciphers
+	print_array(sentence, len_sentence);
+	printf("\n");
+
+	
+	
 }
