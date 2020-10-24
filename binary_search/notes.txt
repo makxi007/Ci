@@ -1,6 +1,0 @@
-1 -> find out about sizeof(array) in C
-also how find a size with sizeof(array)/ sizeof(array[0])
-
-sites:
-https://www.geeksforgeeks.org/binary-search/
-https://www.programmingsimplified.com/c/source-code/c-program-binary-search

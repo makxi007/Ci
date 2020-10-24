@@ -41,17 +41,37 @@ void print_from_user(){
 	
 	int result = binary_search(array, start_, size_numbers , find_value);	
 	(result == -1) ? printf("I find nothing!\n") : 
-			printf("Element on position -> %d\n", result );
+			printf("Element on position -> %d\n", result );	
+}
+
+// A iterative (with while loop) function
+int binarySearch(int array[], int start_point, int array_size, int find_number){
+	
+	while ( start_point <= array_size ) {
+		int middle = start_point + ( array_size - start_point ) / 2;
+
+		if ( array[middle] == find_number ){
+			return middle;
+		} 
+		if ( array[middle] < find_number ) {
+			start_point = middle + 1;
+		}
+		else
+			array_size = middle - 1;
 		
+	}
+	return -1;
 }
 
 int main(void){
-	//int array[] = { 2, 3, 4, 10, 40 };
-	//int size_numbers = sizeof(array) / sizeof(array[0]);
-	//int find_number = 2;
-	//int l = 0;
+	int array[] = { 2, 3, 4, 10, 40 };
+	int size_numbers = sizeof(array) / sizeof(array[0]);
+	int find_number = 10;
+	int l = 0;
+	int result = binarySearch(array, l, size_numbers - 1, find_number);	
+	//(result == -1) ? printf("Find nothing\n") :
+	//		printf("Element in pos -> %d\n", result);
 	
-	print_from_user();
-	
+	printf("%ld", sizeof(array[0]));
 	return 0;
 }
