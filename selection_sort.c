@@ -1,7 +1,6 @@
 // Implementation of selection sort in C-language
 #include <stdio.h>
 
-
 void selection(int array[], int size){
 	int i, j, start_element;
 	for (i = 0; i < size ; ++i){
@@ -25,8 +24,6 @@ void selection(int array[], int size){
 	}
 	printf("\n");
 }
-
-
 
 int main(void){
 	int array[] = {3,2,4,6,5, 1, 0 ,15, 1, 3, 3};
